@@ -36,23 +36,22 @@ const Block = (props) => {
     return (
         <div className='wrapper'>
             {
-               block.map(blocks => {
-                   return (
-                       <Card className={classes.root} key={blocks.id}> 
-                            <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                            Block Height: {blocks.height}
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                            Block Time: {blocks.timestamp} <br />
-                            Block Size: {blocks.size}
-                            </Typography>
-                            </CardContent>
-                       </Card>
 
-
-                   )
-               })
+            block.map(blocks => {
+                return (
+                    <Card className={classes.root} key={blocks.id}> 
+                        <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                        Block Height: {blocks.height}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                        Block Time: {blocks.timestamp} <br />
+                        Block Size: {blocks.size}
+                        </Typography>
+                        </CardContent>
+                    </Card>
+                )
+            })
             }
         </div>
     )
@@ -69,3 +68,9 @@ const mapStateToProps = state => {
 
 
 export default connect(mapStateToProps, {getBlock} )(Block)
+
+
+
+
+
+
