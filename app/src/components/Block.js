@@ -1,9 +1,25 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getBlock } from '../actions'
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+
+
+const useStyles = makeStyles({
+    root: {
+      maxWidth: 250,
+      margin: 5
+    },
+    media: {
+      height: 300,
+    },
+});
 
 const Block = (props) => {
     const { block, isFetching, error } = props
+    const classes = useStyles();
 
     useEffect(() => {
         props.getBlock()
@@ -18,15 +34,23 @@ const Block = (props) => {
     }
 
     return (
-        <div>
+        <div className='wrapper'>
             {
                block.map(blocks => {
                    return (
-                       <div key={blocks.id}> 
-                            <p>Block Height: {blocks.height}</p>
-                            <p>Block Size: {blocks.size}</p>
-                            <p>Block Time: {blocks.timestamp}</p>
-                       </div>
+                       <Card className={classes.root} key={blocks.id}> 
+                            <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                            Block Height: {blocks.height}
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                            Block Time: {blocks.timestamp} <br />
+                            Block Size: {blocks.size}
+                            </Typography>
+                            </CardContent>
+                       </Card>
+
+
                    )
                })
             }
