@@ -4,7 +4,7 @@ import Block from './components/Block';
 function App() {
   return (
     <div className="App">
-      <h1>h1</h1>
+      <h1>BITCOIN BLOCKS</h1>
       <Block />
     </div>
   );
