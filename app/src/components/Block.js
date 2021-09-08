@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import moment from 'moment'
 
 
 const useStyles = makeStyles({
@@ -33,20 +34,21 @@ const Block = (props) => {
         return <h2>Fetching Block data</h2>
     }
 
+    console.log('block console.log',block)
+
     return (
         <div className='wrapper'>
             {
-
             block.map(blocks => {
                 return (
                     <Card className={classes.root} key={blocks.id}> 
                         <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                        Block Height: {blocks.height}
+                            Block Height: {blocks.height}
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
-                        Block Time: {blocks.timestamp} <br />
-                        Block Size: {blocks.size}
+                            Block Time: {blocks.timestamp} <br />
+                            Block Size: {blocks.size}
                         </Typography>
                         </CardContent>
                     </Card>

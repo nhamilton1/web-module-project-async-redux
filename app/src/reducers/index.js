@@ -2,7 +2,8 @@ import { FETCH_START, FETCH_SUCCESS, FETCH_ERROR } from "../actions"
 
 
 const initialState = {
-    block: {
+    block: [
+        {        
         id: "",
         height: '',
         version: '',
@@ -16,7 +17,8 @@ const initialState = {
         nonce: '',
         bits: '',
         difficulty: ''
-    },
+    }
+    ],
     isFetching: false,
     error: ''
 }
@@ -26,7 +28,7 @@ export const reducer = (state = initialState, action) => {
         case(FETCH_START):
             return ({
                 ...state, 
-                block:{},
+                block:[],
                 isFetching: true,
                 error: ''
             })
@@ -40,7 +42,7 @@ export const reducer = (state = initialState, action) => {
         case(FETCH_ERROR):
             return ({
                 ...state,
-                block: {},
+                block: [],
                 isFetching: false,
                 error: action.payload
             })
